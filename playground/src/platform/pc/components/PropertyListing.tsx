@@ -1,8 +1,7 @@
-// PropertyList.js
-
 import React, { useState } from "react";
 import ListComponent from "./ListComponent";
 import MapComponent from "./MapComponent";
+import { useLocalStorage } from "./useLocalStorage";
 
 interface Listing {
   id: number;
@@ -122,15 +121,14 @@ const PropertyList: React.FC = () => {
     },
   ]);
 
+  const [localStorageLocation] = useLocalStorage("location", "Soho");
+  const [localStorageBedrooms] = useLocalStorage("bedrooms", 2);
+
   const MOCK_BATHROOMS = 2;
   const MOCK_BEDROOMS = 2;
   const MOCK_RADIUS = 2;
   const filteredListings = listings.filter((listing) => {
-    const localStorageBedrooms = parseInt(
-      localStorage.getItem("bedrooms") ?? "2"
-    );
-    const localStorageLocation = localStorage.getItem("location");
-    if (listing.location != null && listing.location != localStorageLocation)
+    if (listing.location != null && listing.location !== localStorageLocation)
       return false;
     if (MOCK_BATHROOMS > 0 && listing.baths < MOCK_BATHROOMS) return false;
     if (localStorageBedrooms != null && listing.beds !== localStorageBedrooms)
