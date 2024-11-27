@@ -49,15 +49,15 @@ const PropertyList: React.FC = () => {
   return (
     <div style={{ minHeight: "100vh", backgroundColor: "#111827", color: "#ffffff" }}>
       <div style={{ display: "grid", gridTemplateColumns: "1fr", height: "100vh" }} className="lg:grid-cols-2">
-        <div style={{ padding: "1rem", overflow: "auto" }}>
-          <ListComponent listings={filteredListings} />
-        </div>
         <div style={{ position: "relative" }}>
           <MapComponent
             listings={filteredListings}
             radius={radius}
             setRadius={setRadius}
           />
+        </div>
+        <div style={{ padding: "1rem", overflow: "auto" }}>
+          <ListComponent listings={filteredListings} />
         </div>
       </div>
     </div>

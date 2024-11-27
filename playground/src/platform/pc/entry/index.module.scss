@@ -19,22 +19,52 @@
       gap: 12px;
       flex-grow: 1;
 
-      .chat {
-        display: flex;
-        flex-grow: 1;
-      }
-
       .flexBox {
         display: flex;
         flex-direction: row;
         flex-grow: 1;
-        margin-left: "auto";
-        display: "flex";
+        margin-left: auto;
 
         .propertyList {
           width: 400px;
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          overflow-y: auto;
         }
+
         .avatar {
+          flex-grow: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 10px;
+          padding: 20px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          flex-direction: column;
+        }
+
+        .agentInfo {
+          color: white;
+          text-align: center;
+          margin-top: 10px;
+
+          .agentName {
+            font-size: 18px;
+            font-weight: bold;
+          }
+
+          .agentRatings {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 5px;
+
+            .star {
+              color: #ffcc00;
+              margin-right: 2px;
+            }
+          }
         }
       }
     }

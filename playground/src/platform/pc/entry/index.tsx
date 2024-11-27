@@ -6,8 +6,8 @@ import { rtcManager, IRtcUser } from "@/manager";
 import { useState, useEffect } from "react";
 import styles from "./index.module.scss";
 import Chat from "../chat";
-import ListComponent from "../components/ListComponent";
 import PropertyList from "../components/PropertyListing";
+import { StarFilled } from "@ant-design/icons";
 
 let hasInit = false;
 
@@ -44,13 +44,10 @@ const PCEntry = () => {
 
   return (
     <div className={styles.entry}>
-      <Header />
+      {/* <Header /> */}
       <div className={styles.content}>
         <Description />
-        <div
-          className={styles.body}
-          style={{ display: "flex", height: "100%" }}
-        >
+        <div className={styles.body} style={{ display: "flex", height: "100%" }}>
           <div style={{ display: "flex", flexDirection: "column" }}>
             <Chat />
             <Rtc />
@@ -65,6 +62,16 @@ const PCEntry = () => {
               }}
             >
               <Avatar audioTrack={remoteuser?.audioTrack} />
+              <div className={styles.agentInfo}>
+                <div className={styles.agentName}>Agent: Lora</div>
+                <div className={styles.agentRatings}>
+                  <StarFilled className={styles.star} />
+                  <StarFilled className={styles.star} />
+                  <StarFilled className={styles.star} />
+                  <StarFilled className={styles.star} />
+                  <StarFilled className={styles.star} />
+                </div>
+              </div>
             </div>
             <div className={styles.propertyList}>
               <PropertyList />
@@ -77,19 +84,3 @@ const PCEntry = () => {
 };
 
 export default PCEntry;
-/*
-  return <div className={styles.entry}>
-    <Header></Header>
-    <div className={styles.content}>
-      <Description></Description>
-      <div className={styles.body}>
-        <div className={styles.rtc}>
-          <Rtc></Rtc>
-        </div>
-        <div className={styles.chat}>
-          <Chat></Chat>
-        </div>
-      </div>
-    </div>
-  </div>
-  */

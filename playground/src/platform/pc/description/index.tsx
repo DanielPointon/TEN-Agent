@@ -109,11 +109,11 @@ const Description = () => {
 
 
       <span className={styles.right}>
-        <Select className={styles.graphName}
+        {/* <Select className={styles.graphName}
           disabled={agentConnected} options={graphs.map((item) => { return { label: item, value: item } })}
           value={graphName} onChange={onGraphNameChange}></Select>
        
-        <Button className={styles.settinsIcon} icon={<SettingOutlined />} type="primary" onClick={() => { setModal2Open(true) }}></Button>
+        <Button className={styles.settinsIcon} icon={<SettingOutlined />} type="primary" onClick={() => { setModal2Open(true) }}></Button> */}
         {isRagGraph(graphName) ? <PdfSelect></PdfSelect> : null}
       </span>
     
