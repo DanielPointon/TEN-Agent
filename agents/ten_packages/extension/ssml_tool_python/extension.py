@@ -32,7 +32,7 @@ TOOL_PARAMETERS = {
         "properties": {
             "ssml": {
                 "type": "string",
-                "description": "Send one of these words to perform the corresponding action; SSML_BOOK_VIEWING: to book a viewing, SSML_SHOW_BOOKED_VIEWINGS: show my booked viewings,  SSML_KISS: blow a kiss, SSML_STRETCH: perform a stretch, SSML_BACKGROUND: change the scene background, : perform a dance, SSML_MUSIC: play some music, SSML_MUSIC_STOP: to stop the music, SSML_SHOW_LISTINGS: to show the real estate listings, SSML_CONTENT_SHOW: show me the documentation screen, SSML_SHOW_BOOKING: to show my booking"
+                "description": "Send one of these words to perform the corresponding action; SSML_BOOK_VIEWING: to book a viewing, SSML_SHOW_BOOKED_VIEWINGS: show my booked viewings,  SSML_KISS: blow a kiss, SSML_STRETCH: perform a stretch, SSML_BACKGROUND: show me the room with immersive view, : perform a dance, SSML_MUSIC: play some music, SSML_MUSIC_STOP: to stop the music, SSML_SHOW_LISTINGS: to show the real estate listings, SSML_CONTENT_SHOW: show me the documentation screen, SSML_SHOW_BOOKING: to show my booking"
             }
         },
         "required": ["ssml"],
