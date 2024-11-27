@@ -54,6 +54,21 @@ class SSMLToolExtension(Extension):
                 TOOL_REGISTER_PROPERTY_DESCRIPTON: TOOL_DESCRIPTION,
                 TOOL_REGISTER_PROPERTY_PARAMETERS: TOOL_PARAMETERS,
                 TOOL_CALLBACK: self._set_ssml
+            },
+            'SEND_MESSAGE_TO_THE_CONSOLE': {
+                TOOL_REGISTER_PROPERTY_NAME: 'MESSAGE',
+                TOOL_REGISTER_PROPERTY_DESCRIPTON: 'Use this function to send a message to the users console.',
+                TOOL_REGISTER_PROPERTY_PARAMETERS: {
+                    "type": "object",
+                    "properties": {
+                        "message": {
+                            "type": "string",
+                            "description": "The message to send to the console"
+                        }
+                    },
+                    "required": ["message"],
+                },
+                TOOL_CALLBACK: self._send_message
             }
         }
 
@@ -124,6 +139,9 @@ class SSMLToolExtension(Extension):
     def on_video_frame(self, ten_env: TenEnv, video_frame: VideoFrame) -> None:
         pass
     
+    def _send_message(self, args:dict) -> Any:
+        self.ten_env.send_data(args)
+
     def _set_ssml(self,  args:dict) -> Any:
         ssml = args["ssml"]
         logger.error(f"BenSet3 SSML {ssml}")
@@ -142,3 +160,4 @@ class SSMLToolExtension(Extension):
                 f"Error send SSML")
 
         return "OK"
+

@@ -100,9 +100,10 @@ const Avatar = (props: AvatarProps) => {
   // Forward the received messages to avatar.
   useEffect(() => {
     // Ensure the listener is added only once
-    if (trulienceAvatarRef.current) {
+    if (trulienceAvatarRef.current) {``
       console.log('adding listener', trulienceAvatarRef);
       rtcManager.on("textChanged", (textItem: ITextItem) => {
+        console.log(textItem);
         if (textItem.isFinal && textItem.dataType == "transcribe" && textItem.time != lastChatTime) {
           const isAgent = Number(textItem.uid) != Number(userId);
           if (isAgent) {
