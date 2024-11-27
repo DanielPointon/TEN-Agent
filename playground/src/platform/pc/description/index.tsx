@@ -105,7 +105,7 @@ const Description = () => {
 
   return <div className={styles.description}>
     <span className={styles.title}>Description</span>
-    <span className={styles.text}>TEN Agent is a real-time multimodal AI agent that can speak, see, and access a knowledge base.</span>
+    <span className={styles.text}>RealEst is a real-time AI agent that can help you find and view the right properties for your preferences.</span>
 
 
       <span className={styles.right}>
