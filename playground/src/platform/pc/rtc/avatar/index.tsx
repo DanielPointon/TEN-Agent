@@ -87,13 +87,15 @@ const Avatar = (props: AvatarProps) => {
     return "<trl-anim type='aux' id='translateRotateRightSmall' duration='3.1' blendStart='0.9' blendEnd='0.9'/>"
   }
 
-  function showBookedViewings() {
+  function showListingsWithOneBedRoom() {
+    localStorage.setItem('bedrooms', '1');
     // TODO: show booked viewings logic + display link to go to webpage
     return "<trl-anim type='aux' id='translateRotateRightSmall' duration='3.1' blendStart='0.9' blendEnd='0.9'/>"
   }
 
-  function showListings(minPrice: number = 0, maxPrice: number = 1000000) {
+  function showSohoListings(minPrice: number = 0, maxPrice: number = 1000000) {
     // TODO: show filtered listings logic
+    localStorage.setItem('location', 'Soho');
     return  "<trl-anim type='aux' id='translateRotateRightSmall' duration='3.1' blendStart='0.9' blendEnd='0.9'/>"
   }
 
@@ -113,10 +115,10 @@ const Avatar = (props: AvatarProps) => {
               ssml = getDance();
             } else if (textItem.text.includes("SSML_BOOK_VIEWING")) {
               ssml = bookViewing();
-            } else if (textItem.text.includes("SSML_SHOW_BOOKED_VIEWINGS")) {
-              ssml = showBookedViewings();
-            } else if (textItem.text.includes("SSML_SHOW_LISTINGS")) {
-              ssml = showListings();
+            } else if (textItem.text.includes("SSML_SHOW_LISTINGS_WITH_ONE_BEDROOOM")) {
+              ssml = showListingsWithOneBedRoom();
+            } else if (textItem.text.includes("SSML_SHOW_SOHO_LISTINGS")) {
+              ssml = showSohoListings();
             } else if (textItem.text.includes("SSML_CONTENT_HIDE")) {
               ssml = "<trl-content position='DefaultCenter' />";
             } else if (textItem.text.includes('SSML_CONTENT_SHOW')) {
