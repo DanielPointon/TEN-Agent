@@ -82,6 +82,21 @@ const Avatar = (props: AvatarProps) => {
     return ret;
   }
 
+  function bookViewing(roomId: string = "1234") {
+    // TODO: Add viewing in local storage
+    return "<trl-anim type='aux' id='translateRotateRightSmall' duration='3.1' blendStart='0.9' blendEnd='0.9'/>"
+  }
+
+  function showBookedViewings() {
+    // TODO: show booked viewings logic + display link to go to webpage
+    return "<trl-anim type='aux' id='translateRotateRightSmall' duration='3.1' blendStart='0.9' blendEnd='0.9'/>"
+  }
+
+  function showListings(minPrice: number = 0, maxPrice: number = 1000000) {
+    // TODO: show filtered listings logic
+    return  "<trl-anim type='aux' id='translateRotateRightSmall' duration='3.1' blendStart='0.9' blendEnd='0.9'/>"
+  }
+
   // Forward the received messages to avatar.
   useEffect(() => {
     // Ensure the listener is added only once
@@ -96,7 +111,13 @@ const Avatar = (props: AvatarProps) => {
             let ssml = "";
             if (textItem.text.includes('SSML_DANCE')) {
               ssml = getDance();
-            } else if (textItem.text.includes('SSML_CONTENT_HIDE')) {
+            } else if (textItem.text.includes("SSML_BOOK_VIEWING")) {
+              ssml = bookViewing();
+            } else if (textItem.text.includes("SSML_SHOW_BOOKED_VIEWINGS")) {
+              ssml = showBookedViewings();
+            } else if (textItem.text.includes("SSML_SHOW_LISTINGS")) {
+              ssml = showListings();
+            } else if (textItem.text.includes("SSML_CONTENT_HIDE")) {
               ssml = "<trl-content position='DefaultCenter' />";
             } else if (textItem.text.includes('SSML_CONTENT_SHOW')) {
               ssml = "<trl-content position='ScreenAngledMediumLeft' screen='https://www.youtube.com/embed/BHACKCNDMW8?autoplay=1' pointer='true' x='10' y='10' w='50' h='50' index='0' />";             
